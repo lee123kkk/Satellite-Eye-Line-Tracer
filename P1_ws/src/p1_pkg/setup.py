@@ -25,6 +25,8 @@ setup(
     entry_points={
         'console_scripts': [
             'waypoint_node = p1_pkg.waypoint_node:main',
+            'waypoint_node2 = p1_pkg.waypoint_node2:main',
+            'waypoint_node3 = p1_pkg.waypoint_node3:main',
         ],
     },
 )
