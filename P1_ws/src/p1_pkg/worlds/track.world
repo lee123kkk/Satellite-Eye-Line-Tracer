@@ -1,0 +1,178 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="track_world">
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>
+          <material>
+            <ambient>0.6 0.6 0.6 1</ambient>
+            <diffuse>0.6 0.6 0.6 1</diffuse>
+            <specular>0.0 0.0 0.0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="ortho_camera_fix">
+      <static>true</static>
+      <pose>0.8 -0.8 4.5 0 1.5707 1.5707</pose> 
+      <link name="link">
+        <sensor name="camera" type="camera">
+          <camera>
+            <horizontal_fov>1.4</horizontal_fov>
+            <image><width>1280</width><height>720</height></image>
+            <clip><near>0.1</near><far>100</far></clip>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>30</update_rate>
+          <topic>/camera/image_raw</topic>
+        </sensor>
+      </link>
+    </model>
+
+    <model name="blue_tape_track">
+      <static>true</static>
+
+      <link name="line_0">
+        <pose>1.564 -1.4144999999999999 0.001 0 0 0.9282315473159962</pose>
+        <visual name="visual">
+          <geometry><box><size>0.27360009363293836 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_1">
+        <pose>1.6145 -0.9289999999999999 0.001 0 0 1.60453352109253</pose>
+        <visual name="visual">
+          <geometry><box><size>0.8604554953275041 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_2">
+        <pose>1.5005000000000002 -0.5359999999999999 0.001 0 0 -3.0720532209085</pose>
+        <visual name="visual">
+          <geometry><box><size>0.26148697228356976 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_3">
+        <pose>1.351 -0.5035 0.001 0 0 2.4631296441873287</pose>
+        <visual name="visual">
+          <geometry><box><size>0.1858769240170732 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_4">
+        <pose>1.4460000000000002 -0.3844999999999999 0.001 0 0 0.5044412918686716</pose>
+        <visual name="visual">
+          <geometry><box><size>0.38897568299191965 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_5">
+        <pose>1.59 -0.2709999999999999 0.001 0 0 1.5707963267948966</pose>
+        <visual name="visual">
+          <geometry><box><size>0.128 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_6">
+        <pose>1.2925 -0.23699999999999988 0.001 0 0 3.141592653589793</pose>
+        <visual name="visual">
+          <geometry><box><size>0.655 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_7">
+        <pose>0.991 -0.3659999999999999 0.001 0 0 -1.6017941466771308</pose>
+        <visual name="visual">
+          <geometry><box><size>0.3181240012087214 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_8">
+        <pose>0.9924999999999999 -0.8349999999999999 0.001 0 0 -1.55462126699507</pose>
+        <visual name="visual">
+          <geometry><box><size>0.7400889647685809 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_9">
+        <pose>0.9435 -1.3684999999999998 0.001 0 0 -1.8453378893823245</pose>
+        <visual name="visual">
+          <geometry><box><size>0.4620572098594925 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_10">
+        <pose>1.1835 -1.5619999999999998 0.001 0 0 0.0</pose>
+        <visual name="visual">
+          <geometry><box><size>0.649 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <link name="line_11">
+        <pose>1.4889999999999999 -1.531 0.001 0 0 1.229817373298546</pose>
+        <visual name="visual">
+          <geometry><box><size>0.12578753681359395 0.05 0.002</size></box></geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
